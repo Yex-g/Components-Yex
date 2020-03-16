@@ -1,0 +1,74 @@
+:root{
+    --root-font-size:16px;
+    --hoverLinkColor:#f60;
+    --theme-color:#000
+}
+html{
+    font-size: var(--root-font-size);
+    color:var(--theme-color);
+    overflow-y:scroll;
+    overflow:-moz-scrollbars-vertical
+}
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body,form,li,p,ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+td {
+    text-align: left
+}
+
+img {
+    border: 0
+}
+a {
+    text-decoration: none
+}
+a:active{
+    color:--hoverLinkColor
+}
+.clearfix {
+    zoom:1
+}
+.clearfix:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both
+}
+.clickpointer{
+    cursor: pointer;
+}
+.scrollstyle::-webkit-scrollbar{
+
+}
+/* 滚动条整体部分 */
+.scrollstyle::-webkit-scrollbar{
+
+}
+/* 滚动条两端的按钮 */
+.scrollstyle::-webkit-scrollbar-button{
+
+}
+/* 外层轨道 */
+.scrollstyle::-webkit-scrollbar-track{
+
+}
+/* 内层轨道，滚动条中间部分（除去） */
+.scrollstyle::-webkit-scrollbar-track-piece{
+
+}
+/* 滚动条里面可以拖动的那个 */
+.scrollstyle::-webkit-scrollbar-thumb{
+
+}
+/* 边角 */
+.scrollstyle::-webkit-scrollbar-corner{
+
+}
+/* 定义右下角拖动块的样式 */
+.scrollstyle::-webkit-resizer{
+
+}
+
