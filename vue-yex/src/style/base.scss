@@ -1,0 +1,43 @@
+/** var  statement**/
+/** root font size start **/
+$root-font-size:16px;
+/** root font size end **/
+
+/** font positon start **/
+$theme-text-center:center;
+$theme-text-left:left;
+$theme-text-right:right;
+/** font positon end **/
+
+/** font  set start**/
+$theme-font-family:Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+$theme-font-size:16px;
+$theme-line-height:1.4;
+/** font set end**/
+
+/** color set start **/
+$theme-color:#fff;
+$theme-bgcolor:#fff;
+$theme-bdcolor:#fff;
+/** color set end **/
+
+$themt-box-sizing:border-box;
+$theme-click-cursor:pointer;
+
+/* button  start*/
+$btn-font-size:$theme-font-size;
+$btn-font-weight:500;
+$btn-text-center:$theme-text-center;
+
+$btn-color:#606266;
+$btn-bgcolor:$theme-bgcolor;
+$btn-bdcolor:#dcdfe6;
+$btn-hover-color:#409eff;
+$btn-hover-bgcolor:#ecf5ff;
+$btn-hover-bdcolor:#c6e2ff;
+
+$btn-padding:0.86em 1.43em;
+
+$btn-border-radius:0.286em;
+/* button end*/
+

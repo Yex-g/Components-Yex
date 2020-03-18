@@ -3,8 +3,14 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = {
+    css:{
+      loaderOptions:{
+        scss:{
+          prependData:`@import "@/style/base.scss";`
+        }
+      }
+    },
     configureWebpack: config => {
-      console.log(process.env.NODE_ENV)
       if (process.env.NODE_ENV === 'production') {
         config.devtool = "none"
         // 为生产环境修改配置...
