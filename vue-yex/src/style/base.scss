@@ -27,6 +27,7 @@ $theme-click-cursor:pointer;
 /* button  start*/
 $btn-font-size:$theme-font-size;
 $btn-font-weight:500;
+$btn-line-height:1;
 $btn-text-center:$theme-text-center;
 
 $btn-color:#606266;
@@ -39,5 +40,38 @@ $btn-hover-bdcolor:#c6e2ff;
 $btn-padding:0.86em 1.43em;
 
 $btn-border-radius:0.286em;
+
+$btn-space:0.5em;
 /* button end*/
 
+/* Icon start */
+$icon-font-size:$theme-font-size;
+$icon-font-weight:500;
+$icon-text-center:$theme-text-center;
+
+$icon-color:#606266;
+$icon-bgcolor:$theme-bgcolor;
+$icon-bdcolor:#dcdfe6;
+/* Icon end */
+
+/* Link start */
+$link-font-size:$theme-font-size;
+$link-font-weight:400;
+$link-line-height:1;
+
+$link-color:#606266;
+$link-hover-color:#606266;
+
+$link-bgcolor:#fff;
+$link-hover-bgcolor:#fff;
+
+$link-bdcolor:transparent;
+$link-hover-bdcolor:transparent;
+
+$link-bdwidth:0;
+$link-hover-bdwidth:0;
+
+$link-bdstyle:solid;
+
+$link-space:0.5em;
+ /* Link end */

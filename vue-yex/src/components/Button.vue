@@ -1,15 +1,25 @@
 <template>
-    <button @click="handleClick" class="yx-btn">
-        <i :class="icon" v-if="icon"></i>
+    <button @click="handleClick" class="yx-btn" :class="posClass">
+        <!-- <i :class="icon" v-if="icon"></i> -->
+        <yx-Icon v-if="icon" :type = "icontype" :className="icon"></yx-Icon>
         <span><slot></slot></span>
     </button>
 </template>
 
 <script>
+import YxIcon from './Icon'
 export default {
     name:'yx-button',
     props: {
         icon:{
+            type:String
+        },
+        iconposition:{
+            default:'left',
+            type:String
+        },
+        icontype:{
+            default:'',
             type:String
         },
         autofocus:{
@@ -26,7 +36,7 @@ export default {
         }
     },
     components: {
-
+        YxIcon
     },
     data() {
         return {
@@ -36,7 +46,9 @@ export default {
 
     },
     computed: {
-
+        posClass(){
+            return this.iconposition == 'left'? "yx-btn-left":"yx-btn-right"
+        }
     },
     created() {
 
@@ -53,11 +65,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .yx-btn{
-    display: inline-block;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    line-height: $btn-line-height;
     white-space: nowrap;
     cursor: pointer;
-    background: $btn-bgcolor;
+    background-color: $btn-bgcolor;
     border: 0.063em solid $btn-bdcolor;
     color: $btn-color;
     -webkit-appearance: none;
@@ -76,7 +89,17 @@ export default {
     &:hover,&:focus{
         color: $btn-hover-color;
         border-color: $btn-hover-bgcolor;
-        background-color: $btn-hover-bdcolor
+        background-color: $btn-hover-bdcolor;
+        .yx-iconfont{
+            fill:$btn-hover-color
+        }
+    }
+    &.yx-btn-left .yx-iconfont{
+        margin-right:$btn-space;
+    }
+    &.yx-btn-right .yx-iconfont{
+        order: 2;
+        margin-left:$btn-space;
     }
 }
 </style>

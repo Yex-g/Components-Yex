@@ -1,7 +1,9 @@
 // vue.config.js
 const path = require('path')
 const fs = require('fs')
-
+function resolve(dir){
+    return path.join(__dirname,dir)//path.join(__dirname)设置绝对路径
+}
 module.exports = {
     css:{
       loaderOptions:{
@@ -9,6 +11,12 @@ module.exports = {
           prependData:`@import "@/style/base.scss";`
         }
       }
+    },
+    chainWebpack: config =>{
+        config.resolve.alias
+        .set('@assets',resolve('./src/assets'))
+        .set('@components',resolve('./src/components'))
+        .set('@views',resolve('./src/views'))
     },
     configureWebpack: config => {
       if (process.env.NODE_ENV === 'production') {
