@@ -1,7 +1,13 @@
 <template>
     <div>
         <label v-if= "label!= '' ">{{label}}</label>
-        <input :type="type" v-if="type!='textarea'" />
+        <input :type="type" v-if="type!='textarea'"
+            @click="handleClick"
+            @focus="handleFocus"
+            @blur="handleBlur"
+            @change="handleChange"
+            @clear ="handleClear"
+        />
         <textarea v-else></textarea>
     </div>
 </template>
@@ -26,8 +32,11 @@ export default {
         maxlength:{
             type:Number,
         },
-        minlenght:{
+        minlength:{
             type:Number
+        },
+        resize:{
+            type:String
         },
         placeholder:{
             type:String,
@@ -45,7 +54,6 @@ export default {
             type:Boolean,
             default:false,
         },
-
     },
     components: {
 
@@ -68,7 +76,24 @@ export default {
 
     },
     methods: {
+        handleBlur(){
 
+        },
+        handleFocus(){
+
+        },
+        handleClick(){
+
+        },
+        handleChange(){
+
+        },
+        handleInput(){
+
+        },
+        handleClear(){
+
+        }
     },
 };
 </script>

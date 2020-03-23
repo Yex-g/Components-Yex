@@ -8,6 +8,9 @@
     <yx-link href='https:www.baidu.com' icon="icon-search" iconposition='bottom'>
       默认链接
     </yx-link>
+    <yx-input type = 'text' v-model="inputvalue"></yx-input>
+    <input type="text" v-model ='inputvalue'>
+    <div>{{inputvalue}}</div>
   </div>
 </template>
 
@@ -16,16 +19,19 @@
 import YxButton from '@components/Button'
 import YxIcon from '@components/Icon'
 import YxLink from '@components/Link'
+import YxInput from '@components/Input'
 export default {
   name: 'Home',
   components: {
     YxButton,
     YxIcon,
-    YxLink
+    YxLink,
+    YxInput
   },
   data () {
     return {
-      icon:'iconfont'
+      icon:'iconfont',
+      inputvalue:''
     }
   },
   methods: {
