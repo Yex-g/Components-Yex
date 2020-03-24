@@ -2,6 +2,7 @@
     <div>
         <label v-if= "label!= '' ">{{label}}</label>
         <input :type="type" v-if="type!='textarea'"
+            :value="value"
             @click="handleClick"
             @focus="handleFocus"
             @blur="handleBlur"
@@ -28,6 +29,9 @@ export default {
         type:{
             type:String,
             default:'text'
+        },
+        value:{
+            type:String,
         },
         maxlength:{
             type:Number,
@@ -77,22 +81,22 @@ export default {
     },
     methods: {
         handleBlur(){
-
+            this.$emit('blur')
         },
         handleFocus(){
-
+            this.$emit('focus')
         },
         handleClick(){
-
+            this.$emit('click')
         },
         handleChange(){
-
+            this.$emit('change')
         },
         handleInput(){
-
+            this.$emit('input')
         },
         handleClear(){
-
+            this.$emit('clear')
         }
     },
 };
