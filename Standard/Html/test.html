@@ -1,32 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
-.newspaper
-{
--moz-column-count:3; /* Firefox */
--webkit-column-count:3; /* Safari and Chrome */
-column-count:3;
-
--moz-column-gap:30px; /* Firefox */
--webkit-column-gap:30px; /* Safari and Chrome */
-column-gap:30px;
-}
-</style>
 </head>
 <body>
+    <p style="height: 2000px;"></p>
+<script>
+    window.onscroll = function(){
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        console.log(document.documentElement.clientHeight)
+        if (winScroll >= (document.body.scrollHeight - document.documentElement.clientHeight)) {
+                console.log("触发事件了");
+        }
+    }
+/*
 
-<p><b>注释：</b>Internet Explorer 不支持 column-count 属性。</p>
+    字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串"abcdefg"和数字2，该函数将返回左旋转两位得到的结果"cdefgab"。
 
-<div class="newspaper">
-人民网北京2月24日电 (记者 刘阳)国家发展改革委近日发出通知，决定自2月25日零时起将汽、柴油价格每吨分别提高300元和290元，折算到90号汽油和0号柴油（全国平均）每升零售价格分别提高0.22元和0.25元。
+ 
 
-此次国内成品油价格调整幅度，是按照现行国内成品油价格形成机制，根据国际市场油价变化情况确定的。去年11月16日国内成品油价格调整以来，受市场预期欧美经济复苏前景向好以及中东局势持续动荡等因素影响，国际市场原油价格先抑后扬，2月上旬WTI和布伦特原油期货价格再次回升至每桶95美元和115美元以上。虽然近两日价格有所回落，但国内油价挂钩的国际市场三种原油连续22个工作日移动平均价格上涨幅度已超过4%，达到国内成品油价格调整的边界条件。
+示例 1：
 
-通知指出，这次成品油调价后，国家将按照已建立的补贴机制，继续对种粮农民、渔业（含远洋渔业）、林业、城市公交、农村道路客运（含岛际和农村水路客运）等给予补贴。同时，为保证市场物价基本稳定，防止连锁涨价，对与居民生活密切相关的铁路客运、城市公交、农村道路客运（含岛际和农村水路客运）价格不作调整。
+输入: s = "abcdefg", k = 2
+输出: "cdefgab"
+示例 2：
 
-通知要求，中石油、中石化、中海油三大公司要组织好成品油生产和调运，保持合理库存，加强综合协调和应急调度，保障成品油供应。各级价格主管部门要加大市场监督检查力度，依法查处不执行国家价格政策，以及囤积居奇、造谣惑众、合谋涨价、搭车涨价等违法行为，维护正常市场秩序。
-</div>
+输入: s = "lrloseumgh", k = 6
+输出: "umghlrlose"
+ 
 
+限制：
+
+1 <= k < s.length <= 10000
+通过次数13,246提交次数15,592
+
+*/
+/*
+var reverseLeftWords = function(s, n) {
+    return s.replace(new RegExp('('+s.split('',n).join('')+')([\\w|\\W]{0,})'),function($1,$2,$3){
+        return $3 + $2
+    })
+};
+*/
+/* var reverseLeftWords = function(s, n) {
+  let res=''
+  for(let i = n;i<s.length;i++){
+      res+=s[i]
+  }
+  for(let i = 0;i<n;i++){
+      res+=s[i]
+  }
+  return res
+}; */
+var reverseLeftWords = function(s, n) {
+  let arr = s.split('')
+  return (arr.splice(n).join('') + arr.splice(0,n).join(''))
+}
+console.log(reverseLeftWords('89kljljkj',4))
+/*
+    给你一个非负整数 num ，请你返回将它变成 0 所需要的步数。 如果当前数字是偶数，你需要把它除以 2 ；否则，减去 1 。
+ */
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var numberOfSteps  = function(num) {
+    let i = 0;
+    if(num == 0) {
+        return 1;
+    }
+    let a = num
+    let b = 0
+    while (a != 0){
+         b = a%2
+        if(b != 0 && a > 1){
+            a = (a-1)/2
+            i+=2
+        }else if(b != 0 && a == 1){
+            a = a-1
+            i+=1
+        }else{
+            a = a /2
+            i+=1
+        }
+    }
+   return i;
+};
+/* var numberOfSteps  = function(num) {
+    var str = num.toString(2);
+    return str.length + str.replace(/0/g,"").length - 1;
+};
+console.log(numberOfSteps(5)) */
+
+var addBinary = function(a, b) {
+    let c = parseInt(a,2) + parseInt(b,2)
+    return  c.toString(2)
+}
+/*
+var addBinary = function(a, b) {
+    return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
+};
+*/
+/* let a = "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101"
+let b = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011"
+console.log(addBinary(a,b)) */
+/* var smallerNumbersThanCurrent = function(nums) {
+    let numbers =[]
+    for(let i = 0; i < nums.length; i++){
+        numbers[i] = 0
+        for(let j = 0; j < nums.length; j++){
+            if (i != j ){
+                nums[i] > nums[j]? numbers[i]+=1:''
+            }
+        }
+    }
+    return numbers
+} */
+var smallerNumbersThanCurrent = function(nums) {
+    let numbers =[]
+    for(let i = 0; i < nums.length; i++){
+        numbers[i] = 0
+        for(let j = 0; j < nums.length; j++){
+            if (i != j ){
+                nums[i] > nums[j]? numbers[i]+=1:''
+            }
+        }
+    }
+    return numbers
+}
+console.log( smallerNumbersThanCurrent([8,1,2,2,3]))
+</script>
 </body>
 </html>
