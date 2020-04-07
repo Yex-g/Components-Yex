@@ -1,14 +1,11 @@
 :root{
-    --root-font-size:16px;
+    font-size: $root-font-size;
+    font-family: $theme-font-family;
+    line-height: $theme-line-height;
+    color:$theme-color;
     --hoverLinkColor:#f60;
-    --theme-color:#000;
-    --font-family:""
 }
 html{
-    font-size: var(--root-font-size);
-    font-family: var( --font-family);
-    line-height: normal;
-    color:var(--theme-color);
     overflow-y:scroll;
     overflow:-moz-scrollbars-vertical
 }
@@ -26,7 +23,8 @@ img {
     border: 0
 }
 a {
-    text-decoration: none
+    text-decoration: none;
+    color:initial;
 }
 a:active{
     color:--hoverLinkColor

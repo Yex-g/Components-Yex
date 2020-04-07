@@ -16,8 +16,7 @@ $theme-line-height:1.4;
 /** font set end**/
 
 /** color set start **/
-$theme-color:#606266;  //主题字体颜色
-$theme-sub-color:fff; //副字体颜色
+$theme-color:#fff;
 $theme-bgcolor:#fff;
 $theme-bdcolor:#fff;
 /** color set end **/
@@ -76,19 +75,3 @@ $link-bdstyle:solid;
 
 $link-space:0.5em;
  /* Link end */
-
-/* input  start */
-$input-height:44px;
-$input-font-size:$theme-font-size;
-$input-color:$theme-color;
-$input-placeholder-color:$theme-sub-color;
-$input-padding-horizontal:0.5em;
-$input-padding-vertical:0;
-$input-line-height:1.5;
-
-$label-line-height:1.5;
-$label-padding-horizontal:1em;
-$label-padding-vertical:0;
-$label-font-size:$theme-font-size;
-$label-color:$theme-color;
-/* input end */

@@ -1,0 +1,8 @@
+@import "base.scss";
+@import "reset.scss";
+.mask{
+    width:300px;
+    height:300px;
+    -webkit-mask: url('../../public/Img/1.png') 50px 30px/10px 10px luminance;
+    mask:  url('../../public/Img/1.png') 50px 30px/10px 10px luminance;
+  }

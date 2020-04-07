@@ -16,8 +16,8 @@ module.exports = {
       "vars": "local",
       // 参数不检查
       "args": "none"
-    }]
+    }],
     // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': 0,
   }
 }
