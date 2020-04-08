@@ -8,7 +8,7 @@
     <yx-link href='https:www.baidu.com' icon="icon-search" iconposition='bottom'>
       默认链接
     </yx-link>
-    <yx-input type = 'textarea' v-model="inputvalue" :px = "inputvalue" label = "用户名:"  rows=3  resize=false @input="handleClick"></yx-input>
+    <yx-input type = 'text' v-model="inputvalue" placeholder="请输入用户名" icon="icon-search" iconposition='right' label = "用户名:"  rows=3  resize=false  @iclick='handleClick'></yx-input>
     <div>{{inputvalue}}</div>
   </div>
 </template>
@@ -30,13 +30,13 @@ export default {
   data () {
     return {
       icon:'iconfont',
-      inputvalue:'2',
+      inputvalue:'',
       src:"http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg"
     }
   },
   methods: {
     handleClick(n){
-      console.log(n)
+      this.inputvalue = '86'
     }
   }
 }

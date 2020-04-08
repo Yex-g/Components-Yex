@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <el-input v-model="input" placeholder="请输入内容"></el-input>
+    <el-input v-model="input" placeholder="请输入内容" clearable = true></el-input>
     <div>{{input}}</div>
   </div>
 </template>

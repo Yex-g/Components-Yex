@@ -1,43 +1,51 @@
 <template>
   <div :class="['yx-input', type === 'textarea' ? 'yx-textarea' : '',]">
     <label :for="inputId" class="yx-label" v-if="label!= '' ">{{label}}</label>
-    <input
-      class="yx-input-inner"
-      :id = "inputId"
-      :name = "inputId"
-      :type="type"
-      v-if="type!='textarea'"
-      v-bind="$attrs"
-      :disabled = "disabled"
-      :readonly = "readonly"
-      @click="handleClick"
-      @input="handleInput"
-      @focus="handleFocus"
-      @blur="handleBlur"
-      @change="handleChange"
-      @clear="handleClear"
-      ref="input"
-    />
-    <textarea v-else
-      :class="['yx-input-inner',resize==true?'':'yx-input-noresize' ]"
-      :rows ="rows"
-      :id = "inputId"
-      :name = "inputId"
-      :type="type"
-      :disabled = "disabled"
-      :readonly = "readonly"
-      @click="handleClick"
-      @input="handleInput"
-      @focus="handleFocus"
-      @blur="handleBlur"
-      @change="handleChange"
-      @clear="handleClear"
-      ref="input"
-    ></textarea>
+    <div :class="['yx-input-warpper',posClass]">
+      <input
+        class="yx-input-inner"
+        :id="inputId"
+        :name="inputId"
+        :type="type"
+        :placeholder ="placeholder"
+        v-if="type!='textarea'"
+        :disabled="disabled"
+        :readonly="readonly"
+        @click="handleClick"
+        @input="handleInput"
+        @focus="handleFocus"
+        @blur="handleBlur"
+        @change="handleChange"
+        ref="textarea"
+      />
+      <textarea
+        v-else
+        :class="['yx-input-inner',resize==true?'':'yx-input-noresize' ]"
+        :rows="rows"
+        :id="inputId"
+        :name="inputId"
+        :type="type"
+        :disabled="disabled"
+        :readonly="readonly"
+        @click="handleClick"
+        @input="handleInput"
+        @focus="handleFocus"
+        @blur="handleBlur"
+        @change="handleChange"
+        ref="input"
+      ></textarea>
+      <yx-Icon
+        v-if="icon && type!='textarea'"
+        type="icontype"
+        :className="iconClass"
+        @click="handleIconClick"
+      ></yx-Icon>
+    </div>
   </div>
 </template>
 
 <script>
+import YxIcon from "./Icon";
 export default {
   props: {
     label: {
@@ -63,13 +71,13 @@ export default {
     minlength: {
       type: Number
     },
-    rows:{
-        type:Number,
-        default:2
+    rows: {
+      type: [Number, String],
+      default: 2
     },
     resize: {
-      type: Boolean,
-      default:true
+      type: [Boolean, String],
+      default: true
     },
     placeholder: {
       type: String,
@@ -88,22 +96,43 @@ export default {
       default: false
     }
   },
-  components: {},
+  components: {
+    YxIcon
+  },
   data() {
     return {};
   },
   watch: {
-      nativeInputValue() {
-        this.setNativeInputValue();
-      },
+    nativeInputValue() {
+      this.setNativeInputValue();
+    }
   },
   computed: {
-      nativeInputValue() {
-        return this.value === null || this.value === undefined ? '' : String(this.value);
-      },
-      inputId(){
-          return this.label != null ?'yx-input-'+ parseInt( new Date().getTime().toString().slice(5,)*Math.random() ):''
+    posClass() {
+      return this.iconposition == "left" ? "yx-input-left" : "yx-input-right";
+    },
+    nativeInputValue() {
+      return this.value === null || this.value === undefined
+        ? ""
+        : String(this.value);
+    },
+    inputId() {
+      return this.label != null
+        ? "yx-input-" +
+            parseInt(
+              new Date()
+                .getTime()
+                .toString()
+                .slice(5) * Math.random()
+            )
+        : "";
+    },
+    iconClass(){
+      if(this.clearable){
+        return 'icon-close'
       }
+      return this.icon
+    }
   },
   created() {},
   mounted() {
@@ -111,22 +140,39 @@ export default {
   },
   methods: {
     handleBlur(event) {
-      this.$emit("blur",event);
+      this.$emit("blur", event);
     },
     handleFocus(event) {
-      this.$emit("focus",event);
+      this.$emit("focus", event);
     },
     handleClick(event) {
-      this.$emit("click",event);
+      this.$emit("click", event);
     },
     handleChange(event) {
-      this.$emit("change",event);
+      this.$emit("change", event);
     },
     handleInput(event) {
       this.$emit("input", event.target.value);
     },
     handleClear(event) {
-      this.$emit("clear",event);
+      const input = this.getInput();
+      input.value = "";
+      this.$emit("input", input.value);
+    },
+    handleSearch() {
+      this.$emit('search',this.nativeInputValue)
+    },
+    iconClick(){
+      this.$emit('iclick',this.nativeInputValue)
+    },
+    handleIconClick() {
+      if (this.clearable) {
+        this.handleClear();
+      } else if (this.$listeners.search) {
+        this.handleSearch()
+      } else {
+        this.iconClick()
+      }
     },
     getInput() {
       return this.$refs.input || this.$refs.textarea;
@@ -141,38 +187,68 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.yx-input{
-    display: inline-flex;
-    height: $input-height;
-    align-items: center;
-    &.yx-textarea{
-        height: auto;
-        align-items: flex-start;
+.yx-input {
+  display: inline-flex;
+  height: $input-height;
+  align-items: center;
+  &.yx-textarea {
+    height: auto;
+    align-items: flex-start;
+  }
+  .yx-label {
+    display: block;
+    line-height: $label-line-height;
+    padding: $label-padding-vertical $label-padding-horizontal
+      $label-padding-vertical 0;
+    font-size: $label-font-size;
+    color: $label-color;
+  }
+  .yx-input-inner {
+    height: 100%;
+    box-sizing: border-box;
+    line-height: $input-line-height;
+    padding: 0 $input-padding-horizontal;
+    font-size: $input-font-size;
+    color: $input-color;
+    &.yx-input-noresize {
+      resize: none;
     }
-    .yx-label{
-        display: block;
-        line-height: $label-line-height;
-        padding: $label-padding-vertical $label-padding-horizontal $label-padding-vertical 0;
-        font-size:$label-font-size;
-        color:$label-color
+    &::placeholder {
+      color: $input-placeholder-color;
+      font-size:$input-placeholder-size;
     }
-    .yx-input-inner{
-        height: 100%;
-        box-sizing: border-box;
-        line-height: $input-line-height;
-        padding:0 $input-padding-horizontal;
-        font-size:$input-font-size;
-        color:$input-color;
-        &.yx-input-noresize{
-            resize: none;
-        }
-        ::placeholder{
-            color:$input-placeholder-color;
-        }
+    &:focus {
+      outline: $input-outline;
     }
-    textarea.yx-input-inner{
-        padding-top:$input-padding-vertical;
-        padding-bottom:$input-padding-vertical;
+  }
+  textarea.yx-input-inner {
+    padding-top: $input-padding-vertical;
+    padding-bottom: $input-padding-vertical;
+  }
+  .yx-input-warpper {
+    height: 100%;
+    position: relative;
+    .yx-iconfont {
+      position: absolute;
+      height: 100%;
+      line-height: $input-height;
     }
+    &.yx-input-left {
+      .yx-iconfont {
+        left: 4px;
+      }
+      .yx-input-inner {
+        padding-left: $input-padding-horizontal + 1em;
+      }
+    }
+    &.yx-input-right {
+      .yx-iconfont {
+        right: 0.5em;
+      }
+      .yx-input-inner {
+        padding-right: $input-padding-horizontal + 1em;
+      }
+    }
+  }
 }
 </style>

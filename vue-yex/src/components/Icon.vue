@@ -2,7 +2,7 @@
     <svg class="yx-iconfont" v-if=" type == 'svg'">
         <use v-bind:xlink:href="'#'+className"></use>
     </svg>
-    <i v-else class="yx-iconfont iconfont" :class= 'className'></i>
+    <i v-else class="yx-iconfont iconfont" :class= 'className' @click="handleClick"></i>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
         },
         className:{
             default:'',
-            type:String
+            type:[String,Array]
         }
     },
     components: {
@@ -39,7 +39,9 @@ export default {
 
     },
     methods: {
-
+        handleClick(){
+            this.$emit('click')
+        }
     },
 };
 </script>
