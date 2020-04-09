@@ -210,6 +210,7 @@ export default {
     padding: 0 $input-padding-horizontal;
     font-size: $input-font-size;
     color: $input-color;
+    border-radius: $input-radius;
     &.yx-input-noresize {
       resize: none;
     }
