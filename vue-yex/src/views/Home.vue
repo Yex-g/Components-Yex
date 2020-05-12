@@ -15,10 +15,10 @@
 
 <script>
 // @ is an alias to /src
-import YxButton from '@components/Button'
-import YxIcon from '@components/Icon'
-import YxLink from '@components/Link'
-import YxInput from '@components/Input'
+import YxButton from '@components/Button/index'
+import YxIcon from '@components/Icon/index'
+import YxLink from '@components/Link/index'
+import YxInput from '@components/Input/index'
 export default {
   name: 'Home',
   components: {

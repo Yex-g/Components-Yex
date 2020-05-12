@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name:'yx-icon',
+    name:'YxIcon',
     props: {
         type:{
             default:'icon',

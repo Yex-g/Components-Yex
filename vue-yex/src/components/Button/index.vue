@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import YxIcon from './Icon'
+import YxIcon from '@components/Icon/index'
 export default {
-    name:'yx-button',
+    name:'YxButton',
     props: {
         icon:{
             type:String

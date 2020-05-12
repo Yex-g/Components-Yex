@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <el-input type="file" v-model="input" placeholder="请输入内容" clearable = true></el-input>
+    <el-input type="file" placeholder="请输入内容" ></el-input>
     <div>{{input}}</div>
   </div>
 </template>
