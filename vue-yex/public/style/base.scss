@@ -25,6 +25,7 @@ $theme-bdcolor:#fff;
 $themt-box-sizing:border-box;
 $theme-click-cursor:pointer;
 $theme-radius:0;
+$theme-space:8px;
 
 /* button  start*/
 $btn-font-size:$theme-font-size;
@@ -96,3 +97,14 @@ $label-padding-vertical:0;
 $label-font-size:$theme-font-size;
 $label-color:$theme-color;
 /* input end */
+
+/* Radio start */
+$radio-border-width:1px;
+$radio-border-color:$theme-color;
+$radio-font-size:$theme-font-size;
+$radio-line-height:1.4;
+$radio-color:$theme-color;
+$radio-select-color:#409eff;
+$radio-select-border-width:0.35em;
+$radio-label-space:$theme-space;
+/* Radio end */
