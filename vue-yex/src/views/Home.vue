@@ -17,12 +17,12 @@
     ></yx-input>
     <div>{{inputvalue}}</div>
     <div>
-      <yx-radio label="radio" left>单选框1</yx-radio>
-      <yx-radio label="radio" left>单选框2</yx-radio>
-      <yx-radio label="radio" right>单选框3</yx-radio>
-      <yx-radio label="radio" right>单选框4</yx-radio>
-      <yx-radio label="radio" right>单选框5</yx-radio>
-      <yx-radio label="radio" left>单选框6</yx-radio>
+      <yx-radio :value.sync="inputSelect" label="radio" left>单选框1</yx-radio>
+      <yx-radio :value.sync="inputSelect" label="radio" left>单选框2</yx-radio>
+      <yx-radio :value.sync="inputSelect" label="radio" right>单选框3</yx-radio>
+      <yx-radio :value.sync="inputSelect" label="radio" right>单选框4</yx-radio>
+      <yx-radio :value.sync="inputSelect" label="radio" right>单选框5</yx-radio>
+      <yx-radio :value.sync="inputSelect" label="radio" left>单选框6</yx-radio>
     </div>
   </div>
 </template>
@@ -48,7 +48,8 @@ export default {
     return {
       icon: "iconfont",
       inputvalue: "",
-      src: "http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg"
+      src: "http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg",
+      inputSelect:''
     };
   },
   created() {},

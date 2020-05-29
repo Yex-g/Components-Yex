@@ -1,7 +1,7 @@
 <template>
   <div class="yx-radio" :class="[!!right?'yx-radio-right':'',isChecked?'yx-radio-check':'']">
     <template v-if="!!right">
-      <input type="radio" :name="label" id class="yx-radio-input" />
+      <input type="radio" :name="label" id class="yx-radio-input"/>
       <span class="yx-radio-inner"></span>
       <label class="yx-radio-label" :for="label">
         <slot></slot>
@@ -36,6 +36,10 @@ export default {
     disabled: {
       default: false,
       type: Boolean
+    },
+    value:{
+      default: "",
+      type: [String, Number, Boolean]
     }
   },
   components: {},
@@ -44,12 +48,20 @@ export default {
       isChecked: false
     };
   },
-  watch: {},
-  computed: {},
+  watch: {
+    value(){
+      console.log(value)
+    }
+  },
+  computed: {
+    model(){
+      return this.value
+    }
+  },
   created() {},
   mounted() {},
   methods: {
-    handleClickInput(ev) {
+    handleInputSelect(ev) {
       this.isChecked = ev.target.checked;
       this.change();
     },
