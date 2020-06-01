@@ -1,0 +1,110 @@
+/*  */
+$disable-color:#D4D4D4;
+
+/* 主色 */
+$theme-color:#00D4B5;
+$theme-sub-color:rgba(0, 212, 181, 0.1);
+$theme-hover-color:rgba(0, 191, 163, 1);
+$theme-active-color:rgba(0, 172, 147, 1);
+$theme-disabled-color:$disable-color;
+
+$theme-space:8px;
+/* 背景色 */
+$theme-bgcolor:#EEF2F2;
+$theme-sub-bgcolor:rgba(29,31,38,0.1);
+/* 侧栏背景 */
+$theme-silde-bgcolor:rgba(29,31,38,1);
+$theme-silde-active-bgcolor:#242733;
+/* 分割线 */
+$theme-split-color:#C8D5D8;
+$theme-dark-split-color:#1D1F26;
+/* 边框 */
+$theme-bdcolor:#1D1F26;
+$theme-sub-bdcolor:#C8D5D8;
+$theme-box-shadow:none;
+/* 字体*/
+$theme-text-color:#15191A;
+$theme-sub-text-color:#677B80;
+$theme-light-text-color:#C8D5D8;
+$theme-disabled-text-color:$disable-color;
+
+$theme-font-family:huakang,siyuan, Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+$theme-text-center:center;
+$theme-font-size:14px;
+$theme-big-font-size:22px;
+
+/* 按钮组件 */
+/* button  start*/
+$btn-font-size:$theme-font-size;
+$btn-font-weight:500;
+$btn-line-height:1;
+$btn-text-center:$theme-text-center;
+
+$btn-color:#606266;
+$btn-bgcolor:$theme-bgcolor;
+$btn-bdcolor:#dcdfe6;
+$btn-hover-color:#409eff;
+$btn-hover-bgcolor:#ecf5ff;
+$btn-hover-bdcolor:#c6e2ff;
+
+$btn-padding:0.86em 1.43em;
+
+$btn-border-radius:0.286em;
+
+$btn-space:0.5em;
+/* button end*/
+
+/* Icon start */
+$icon-font-size:$theme-font-size;
+$icon-font-weight:500;
+$icon-text-center:$theme-text-center;
+
+$icon-color:#606266;
+$icon-bgcolor:$theme-bgcolor;
+$icon-bdcolor:#dcdfe6;
+/* Icon end */
+
+/* Link start */
+$link-font-size:$theme-font-size;
+$link-font-weight:400;
+$link-line-height:1;
+
+$link-color:#606266;
+$link-hover-color:#606266;
+
+$link-bgcolor:#fff;
+$link-hover-bgcolor:#fff;
+
+$link-bdcolor:transparent;
+$link-hover-bdcolor:transparent;
+
+$link-bdwidth:0;
+$link-hover-bdwidth:0;
+
+$link-bdstyle:solid;
+
+$link-space:0.5em;
+ /* Link end */
+
+/* input  start */
+$input-height:44px;
+$input-font-size:$theme-font-size;
+$input-color:$theme-color;
+$input-placeholder-color:$theme-sub-color;
+$input-padding-horizontal:0.5em;
+$input-padding-vertical:0;
+$input-line-height:1.5;
+
+$label-line-height:1.5;
+$label-padding-horizontal:1em;
+$label-padding-vertical:0;
+$label-font-size:$theme-font-size;
+$label-color:$theme-color;
+/* input end */
+
+/* Radio start */
+$radio-font-size:$theme-font-size;
+$radio-color:$theme-color;
+$radio-select-color:#409eff;
+/* Radio end */
+
