@@ -1,15 +1,15 @@
-import React, { Component, Children } from 'react'
+import React, { Component } from 'react'
 export default class Button extends Component {
-    constructor(props) {
-        super(props)
-        this.handleCllick = this.handleCllick.bind(this)
-    }
-    handleCllick(){
+    handleClick = () => {
         this.props.click.call(this)
     }
     render() {
+        let _class = this.props.className
         return (
-            <button className="yx-button" onClick = { () => this.handleCllick()} >{this.props.children}</button>
+            <button className={
+                "yx-btn " +
+                _class
+            } onClick={() => this.handleClick()} >{this.props.children}</button>
         )
     }
 }

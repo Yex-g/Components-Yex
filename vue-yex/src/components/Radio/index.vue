@@ -1,7 +1,7 @@
 <template>
   <div class="yx-radio" :class="[!!right?'yx-radio-right':'',isChecked?'yx-radio-check':'']">
     <template v-if="!!right">
-      <input type="radio" :name="label" id class="yx-radio-input"/>
+      <input type="radio" :name="label" id class="yx-radio-input" />
       <span class="yx-radio-inner"></span>
       <label class="yx-radio-label" :for="label">
         <slot></slot>
@@ -37,7 +37,7 @@ export default {
       default: false,
       type: Boolean
     },
-    value:{
+    value: {
       default: "",
       type: [String, Number, Boolean]
     }
@@ -49,13 +49,13 @@ export default {
     };
   },
   watch: {
-    value(){
-      console.log(value)
+    value() {
+      console.log(value);
     }
   },
   computed: {
-    model(){
-      return this.value
+    model() {
+      return this.value;
     }
   },
   created() {},
