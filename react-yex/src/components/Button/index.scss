@@ -1,0 +1,38 @@
+.yx-btn{
+    display: flex;
+    align-items: center;
+    line-height: $btn-line-height;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: $btn-bgcolor;
+    border: 0.063em solid $btn-bdcolor;
+    color: $btn-color;
+    -webkit-appearance: none;
+    text-align: $btn-text-center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    font-size: $btn-font-size;
+    font-weight: $btn-font-weight;
+    padding: $btn-padding;
+    border-radius: $btn-border-radius;
+    &:hover,&:focus{
+        color: $btn-hover-color;
+        border-color: $btn-hover-bgcolor;
+        background-color: $btn-hover-bdcolor;
+        .yx-iconfont{
+            fill:$btn-hover-color
+        }
+    }
+    &.yx-btn-left .yx-iconfont{
+        margin-right:$btn-space;
+    }
+    &.yx-btn-right .yx-iconfont{
+        order: 2;
+        margin-left:$btn-space;
+    }
+}

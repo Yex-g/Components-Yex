@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+}
+
+body {
+    font-family: $theme-font-family;
+    font-size:$theme-font-size;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

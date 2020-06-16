@@ -45,8 +45,9 @@
 </template>
 
 <script>
-import YxIcon from "./Icon";
+import YxIcon from "@components/Icon/index";
 export default {
+  name:'YxInput',
   props: {
     label: {
       type: String

@@ -1,3 +1,4 @@
+/** no effect **/
 /** var  statement**/
 /** root font size start **/
 $root-font-size:16px;
@@ -92,3 +93,10 @@ $label-padding-vertical:0;
 $label-font-size:$theme-font-size;
 $label-color:$theme-color;
 /* input end */
+
+/* Radio start */
+$radio-font-size:$theme-font-size;
+$radio-color:$theme-color;
+$radio-select-color:#409eff;
+/* Radio end */
+
