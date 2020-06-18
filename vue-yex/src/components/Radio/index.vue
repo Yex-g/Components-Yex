@@ -1,7 +1,7 @@
 <template>
   <div class="yx-radio" :class="[!!right?'yx-radio-right':'',isChecked?'yx-radio-check':'']">
     <template v-if="!!right">
-      <input type="radio" :name="label" id class="yx-radio-input" />
+      <input type="radio" :name="label" id class="yx-radio-input" v-model="value"/>
       <span class="yx-radio-inner"></span>
       <label class="yx-radio-label" :for="label">
         <slot></slot>

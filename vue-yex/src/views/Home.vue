@@ -1,10 +1,6 @@
 <template>
   <div class="home">
-    <yx-button icon="icon-search" iconposition="left" @click="handleClick(8)">按钮</yx-button>
-    <yx-icon class="icon-account"></yx-icon>
-    <br />
-    <yx-link href="https:www.baidu.com" icon="icon-search" iconposition="bottom">默认链接</yx-link>
-    <yx-input
+    <!-- <yx-input
       type="text"
       v-model="inputvalue"
       placeholder="请输入用户名"
@@ -14,15 +10,18 @@
       rows="3"
       resize="false"
       @iclick="handleClick"
-    ></yx-input>
+    ></yx-input> -->
     <div>{{inputvalue}}</div>
+    <yx-radio left v-model="radio">单个用单选框</yx-radio>
     <div>
-      <yx-radio :value.sync="inputSelect" label="radio" left>单选框1</yx-radio>
-      <yx-radio :value.sync="inputSelect" label="radio" left>单选框2</yx-radio>
-      <yx-radio :value.sync="inputSelect" label="radio" right>单选框3</yx-radio>
-      <yx-radio :value.sync="inputSelect" label="radio" right>单选框4</yx-radio>
-      <yx-radio :value.sync="inputSelect" label="radio" right>单选框5</yx-radio>
-      <yx-radio :value.sync="inputSelect" label="radio" left>单选框6</yx-radio>
+      <yx-radio-group label="radio">
+        <yx-radio left>单选框1</yx-radio>
+        <yx-radio left>单选框2</yx-radio>
+        <yx-radio right>单选框3</yx-radio>
+        <yx-radio right>单选框4</yx-radio>
+        <yx-radio right>单选框5</yx-radio>
+        <yx-radio left>单选框6</yx-radio>
+      </yx-radio-group>
     </div>
   </div>
 </template>
@@ -49,7 +48,7 @@ export default {
       icon: "iconfont",
       inputvalue: "",
       src: "http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg",
-      inputSelect:''
+      inputSelect: ""
     };
   },
   created() {},
