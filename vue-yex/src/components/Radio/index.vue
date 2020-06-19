@@ -1,17 +1,24 @@
 <template>
   <div class="yx-radio" :class="[!!right?'yx-radio-right':'',isChecked?'yx-radio-check':'']">
     <template v-if="!!right">
-      <input type="radio" :name="label" id class="yx-radio-input" v-model="value"/>
+      <input type="radio" class="yx-radio-input" v-model="model" />
       <span class="yx-radio-inner"></span>
-      <label class="yx-radio-label" :for="label">
+      <label class="yx-radio-label">
         <slot></slot>
       </label>
     </template>
     <template v-else>
-      <label class="yx-radio-label" :for="label">
+      <label class="yx-radio-label">
         <slot></slot>
       </label>
-      <input type="radio" :name="label" id class="yx-radio-input" />
+      <input
+        type="radio"
+        class="yx-radio-input"
+        :value="label"
+        v-model="model"
+        @change="handleChange($event)"
+        ref="radio"
+      />
       <span class="yx-radio-inner"></span>
     </template>
   </div>
@@ -45,7 +52,8 @@ export default {
   components: {},
   data() {
     return {
-      isChecked: false
+      isChecked: false,
+      radioValue: this.value
     };
   },
   watch: {
@@ -54,19 +62,37 @@ export default {
     }
   },
   computed: {
-    model() {
-      return this.value;
+    isGroup() {
+      let parent = this.$parent;
+      while (parent) {
+        if (parent.$options.componentName !== "ElRadioGroup") {
+          parent = parent.$parent;
+        } else {
+          this._radioGroup = parent;
+          return true;
+        }
+      }
+      return false;
+    },
+    model: {
+      get() {
+        return this.isGroup ? this._radioGroup.value : this.value;
+      },
+      set(val) {
+        if (this.isGroup) {
+          // 调动父级
+          this.dispatch();
+        } else {
+          this.$emit("input", val);
+        }
+      }
     }
   },
   created() {},
   mounted() {},
   methods: {
-    handleInputSelect(ev) {
-      this.isChecked = ev.target.checked;
-      this.change();
-    },
-    change() {
-      this.$emit("change");
+    handleChange(ev) {
+      debugger;
     }
   }
 };
