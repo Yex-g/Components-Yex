@@ -1,25 +1,12 @@
 <template>
   <div class="home">
-    <!-- <yx-input
-      type="text"
-      v-model="inputvalue"
-      placeholder="请输入用户名"
-      icon="icon-search"
-      iconposition="right"
-      label="用户名:"
-      rows="3"
-      resize="false"
-      @iclick="handleClick"
-    ></yx-input>-->
     <div>{{inputSelect}}</div>
-    <yx-radio left v-model="inputSelect" label="单个">单个用单选框</yx-radio>
+    <yx-radio v-model="inputSelect" label="单个1">单个用单选框1</yx-radio>
+    <div>{{radioValue}}</div>
     <yx-radio-group v-model="radioValue">
-      <yx-radio left>单选框1</yx-radio>
-      <yx-radio left>单选框2</yx-radio>
-      <yx-radio right>单选框3</yx-radio>
-      <yx-radio right>单选框4</yx-radio>
-      <yx-radio right>单选框5</yx-radio>
-      <yx-radio left>单选框6</yx-radio>
+      <yx-radio label="单个1">单选组1</yx-radio>
+      <yx-radio label="单个2" right>单选组2</yx-radio>
+      <yx-radio label="单个3">单选组3</yx-radio>
     </yx-radio-group>
   </div>
 </template>
@@ -32,7 +19,7 @@ import YxLink from "@components/Link/index";
 import YxInput from "@components/Input/index";
 import YxRadio from "@components/Radio/index";
 import YxRadioGroup from "@components/Radio/radio-group";
-// 引入测试父子双向数据绑定 通过v-model
+
 export default {
   name: "Home",
   components: {

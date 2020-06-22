@@ -1,14 +1,14 @@
 <template>
   <div class="yx-radio" :class="[!!right?'yx-radio-right':'',isChecked?'yx-radio-check':'']">
     <template v-if="!!right">
-      <input type="radio" class="yx-radio-input" v-model="model" />
+      <input type="radio" class="yx-radio-input" :value="label" v-model="model" ref="radio" />
       <span class="yx-radio-inner"></span>
-      <label class="yx-radio-label">
+      <label class="yx-radio-label" @click="handleChange(label)">
         <slot></slot>
       </label>
     </template>
     <template v-else>
-      <label class="yx-radio-label">
+      <label class="yx-radio-label" @click="handleChange(label)">
         <slot></slot>
       </label>
       <input
@@ -16,7 +16,6 @@
         class="yx-radio-input"
         :value="label"
         v-model="model"
-        @change="handleChange($event)"
         ref="radio"
       />
       <span class="yx-radio-inner"></span>
@@ -52,20 +51,16 @@ export default {
   components: {},
   data() {
     return {
-      isChecked: false,
-      radioValue: this.value
+      isChecked: false
     };
   },
   watch: {
-    value() {
-      console.log(value);
-    }
   },
   computed: {
     isGroup() {
       let parent = this.$parent;
       while (parent) {
-        if (parent.$options.componentName !== "ElRadioGroup") {
+        if (parent.$options.componentName !== "YxRadioGroup") {
           parent = parent.$parent;
         } else {
           this._radioGroup = parent;
@@ -79,20 +74,20 @@ export default {
         return this.isGroup ? this._radioGroup.value : this.value;
       },
       set(val) {
-        if (this.isGroup) {
-          // 调动父级
-          this.dispatch();
-        } else {
-          this.$emit("input", val);
-        }
+        this.handleChange(val)
       }
     }
   },
   created() {},
   mounted() {},
   methods: {
-    handleChange(ev) {
-      debugger;
+    handleChange(val) {
+      if (this.isGroup) {
+          // 调动父级
+          this._radioGroup.$emit("input", val);
+        } else {
+          this.$emit("input", val);
+        }
     }
   }
 };

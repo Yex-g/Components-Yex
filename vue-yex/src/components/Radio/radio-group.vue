@@ -1,5 +1,6 @@
 <template>
-  <div  class="yx-radio-group">
+  <div class="yx-radio-group">
+    <input type="hidden" v-model="value">
     <slot></slot>
   </div>
 </template>
@@ -7,7 +8,10 @@
 <script>
 export default {
   name: "YxRadioGroup",
-  props: [],
+  componentName:'YxRadioGroup',
+  props: {
+    value:{}
+  },
   components: {},
   data() {
     return {};
@@ -16,7 +20,11 @@ export default {
   computed: {},
   created() {},
   mounted() {},
-  methods: {}
+  methods: {
+    handleInput(val){
+        this.value = val
+    }
+  }
 };
 </script>
 

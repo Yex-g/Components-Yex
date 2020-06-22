@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="text" v-model="model" @input="changeVal">
+        <div :value="value" @input="changeVal">{{value}}</div>
     </div>
 </template>
 
