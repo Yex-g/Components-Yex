@@ -9,5 +9,4 @@ const store = createStore(
   combineReducers({ fruit: fruitReducer, user }),
   applyMiddleware(logger, thunk)
 );
-
 export default store;
