@@ -1,19 +1,37 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+// import React from "react";
+// import ReactDOM from "react-dom";
+import React, {Component} from './kreact'
+import ReactDOM from "./kreact-dom";
 
-// React.createElement() -> vdom
-ReactDOM.render(<App />, document.getElementById('root'));
-// let count = 1;
-// render()
-// setInterval(render, 1000);
-// function render() {
-//   ReactDOM.render(<h1>React Study, {count++}</h1>, document.getElementById("root"));
-// }
+function Comp(props) {
+  return <h2>hi {props.name}</h2>;
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class Comp2 extends Component {
+  render() {
+    return (
+      <div>
+        comp2
+      </div>
+    )
+  }
+}
+
+// jsx就是js对象，就是vdom
+const foo = 'bar';
+const users = [
+    {name:'tom'},
+    {name:'jerry'},
+]
+const jsx = (
+  <div id="demo" className={foo}>
+    <span>hi</span>
+    <Comp name="函数组件" />
+    <Comp2 name="类组件" />
+    {users.map(user=><div>{user.name}</div>)}
+  </div>
+);
+// React.createElement() => vdom
+console.log(jsx);
+
+ReactDOM.render(jsx, document.querySelector("#root"));
